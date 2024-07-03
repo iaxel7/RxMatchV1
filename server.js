@@ -119,6 +119,18 @@ app.post('/api/medication/save', authenticate, (req, res) => {
         });
     });
 });
+// Route to handle contact form submission
+app.post('/api/contact', (req, res) => {
+    const { name, email, message } = req.body;
+    
+    // Insert the contact form data into the ContactForms table
+    pool.query('INSERT INTO ContactForms (name, email, message) VALUES (?, ?, ?)', [name, email, message], (err) => {
+        if (err) return res.status(500).json({ error: err.message });
+        
+        res.status(201).json({ message: 'Contact form submitted successfully!' });
+    });
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
