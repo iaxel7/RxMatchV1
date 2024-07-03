@@ -108,11 +108,11 @@ app.post('/api/medication/save', authenticate, (req, res) => {
         if (err) return res.status(500).json({ error: err.message });
         const medrxId = results.insertId;
         // Insert a new record into the History table with the medication ID
-        pool.query('INSERT INTO History (medrx_id) VALUES (?)', [medrxId], (err, results) => {
+        pool.query('INSERT INTO Liked (medrx_id) VALUES (?)', [medrxId], (err, results) => {
             if (err) return res.status(500).json({ error: err.message });
-            const historyId = results.insertId;
+            const likedId = results.insertId;
             // Update the user's history ID in the Users table
-            pool.query('UPDATE Users SET history_id = ? WHERE id = ?', [historyId, req.user.id], (err) => {
+            pool.query('UPDATE Users SET liked_id = ? WHERE id = ?', [liked_, req.user.id], (err) => {
                 if (err) return res.status(500).json({ error: err.message });
                 res.json({ message: 'Medication saved!' });
             });

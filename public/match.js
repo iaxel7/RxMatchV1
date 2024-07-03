@@ -63,3 +63,25 @@ function saveMedication(name, description) {
         console.error('Error:', error);
     });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const searchButtons = document.querySelectorAll('.search-button');
+    const illnessInput = document.getElementById('illness');
+
+    searchButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const searchText = this.getAttribute('data-search');
+            illnessInput.value = searchText;
+        });
+    });
+});
+
+
+
+// Hamburger menu
+const toggleButton = document.getElementsByClassName('toggle-button')[0]
+const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+
+toggleButton.addEventListener('click', () => {
+  navbarLinks.classList.toggle('active')
+}); 
