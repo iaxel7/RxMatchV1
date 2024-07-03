@@ -103,16 +103,16 @@ app.get('/api/medication/search', authenticate, async (req, res) => {
 // Route to save medication information for a user
 app.post('/api/medication/save', authenticate, (req, res) => {
     const { medicationInfo } = req.body;
-    // Insert the medication info into the Medrx table
-    pool.query('INSERT INTO Medrx (medication_info) VALUES (?)', [medicationInfo], (err, results) => {
+    // Insert the medication info into the user_medications table
+    pool.query('INSERT INTO user_medications (medication_info) VALUES (?)', [medicationInfo], (err, results) => {
         if (err) return res.status(500).json({ error: err.message });
-        const medrxId = results.insertId;
-        // Insert a new record into the History table with the medication ID
-        pool.query('INSERT INTO History (medrx_id) VALUES (?)', [medrxId], (err, results) => {
+        const user_medicationsId = results.insertId;
+        // Insert a new record into the Liked table with the medication ID
+        pool.query('INSERT INTO Liked (user_medications_id) VALUES (?)', [user_medicationsId], (err, results) => {
             if (err) return res.status(500).json({ error: err.message });
-            const historyId = results.insertId;
-            // Update the user's history ID in the Users table
-            pool.query('UPDATE Users SET history_id = ? WHERE id = ?', [historyId, req.user.id], (err) => {
+            const likedid = results.insertId;
+            // Update the user's Liked ID in the Users table
+            pool.query('UPDATE Users SET Liked_id = ? WHERE id = ?', [likedid, req.user.id], (err) => {
                 if (err) return res.status(500).json({ error: err.message });
                 res.json({ message: 'Medication saved!' });
             });
