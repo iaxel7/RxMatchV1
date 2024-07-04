@@ -1,65 +1,98 @@
 // Adding an event listener to the form to handle the submit event
 document.getElementById('illnessForm').addEventListener('submit', function(event) {
-    event.preventDefault();  // Prevent the form from submitting in the traditional way
+    event.preventDefault();
 
-    // Get the value entered by the user
     const illness = document.getElementById('illness').value;
     const resultsDiv = document.getElementById('results');
 
-    // Fetch medication data from the FDA API using the entered illness
-    fetch(`https://api.fda.gov/drug/label.json?search=indications_and_usage:${illness}`)
-        .then(response => response.json())  // Parse the JSON response
-        .then(data => {
-            resultsDiv.innerHTML = '';  // Clear previous results
-            if (data.results && data.results.length > 0) {  // Check if there are any results
-                data.results.forEach(medication => {  // Iterate over each medication
-                    const medDiv = document.createElement('div');  // Create a div for each medication
-                    const medName = medication.openfda.brand_name ? medication.openfda.brand_name.join(', ') : 'Unknown';  // Get the brand name
-                    const medDescription = medication.description ? medication.description[0] : 'No description available';  // Get the description
-                    
-                    // Set the HTML content for each medication div
-                    medDiv.innerHTML = `
-                        <h2>${medName}</h2>
-                        <p>${medDescription}</p>
-                        <button onclick="saveMedication('${medName}', '${medDescription}')">Save Medication</button>
-                    `;
-                    resultsDiv.appendChild(medDiv);  // Append the medication div to the results div
-                });
-            } else {
-                // If no results, display a message
-                resultsDiv.innerHTML = '<p>No medications found for this illness.</p>';
-            }
-        })
-        .catch(error => {
-            // If there's an error with the fetch, display an error message
-            resultsDiv.innerHTML = '<p>An error occurred while fetching data.</p>';
-            console.error('Error:', error);
-        });
+    console.log('Searching for medications related to:', illness); // Log the illness
+
+    fetch(`/api/medication/search?illness=${illness}`, {
+        method: 'GET'
+    })
+    .then(response => {
+        console.log('Received response:', response); // Log the response
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Received data:', data); // Log the data
+        resultsDiv.innerHTML = '';  // Clear previous results
+        if (data && data.length > 0) {  // Check if there are any results
+            data.forEach(medication => {  // Iterate over each medication
+                const medDiv = document.createElement('div');  // Create a div for each medication
+                let medName = medication.name;  // Get the medication name
+                const medUsage = medication.usage;  // Get the usage information
+                const medAdverseEffects = medication.adverse_effects;  // Get the adverse effects information
+                
+                // Check if the medication name is "Unknown" and replace it with a custom message
+                if (medName === 'Unknown') {
+                    medName = 'Medication name not available';
+                }
+
+                // Set the HTML content for each medication div
+                medDiv.innerHTML = `
+                    <h2>${medName}</h2>
+                    <p><strong>Usage:</strong> ${medUsage}</p>
+                    <p><strong>Adverse Effects:</strong> ${medAdverseEffects}</p>
+                    <button onclick="saveMedication('${medName}', '${medUsage}', '${medAdverseEffects}')">Save Medication</button>
+                `;
+                resultsDiv.appendChild(medDiv);  // Append the medication div to the results div
+            });
+        } else {
+            resultsDiv.innerHTML = '<p>No medications found for this illness.</p>';
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error); // Log the error
+        resultsDiv.innerHTML = '<p>An error occurred while fetching data.</p>';
+    });
 });
 
 // Function to save the medication
-function saveMedication(name, description) {
-    const token = localStorage.getItem('token');  // Get the token from local storage
-    if (!token) {  // Check if the user is logged in
-        alert('You need to be logged in to save medications');  // Alert the user if not logged in
-        return;
-    }
+function saveMedication(name, usage, adverseEffects) {
+    console.log('Saving medication:', { name, usage, adverseEffects }); // Log the medication being saved
 
-    // Send a POST request to save the medication
-    fetch('/save_medication', {
+    fetch('/api/medication/save', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`  // Include the token in the Authorization header
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, description })  // Send the medication data in the request body
+        body: JSON.stringify({ name, usage, adverseEffects })
     })
-    .then(response => response.json())  // Parse the JSON response
+    .then(response => {
+        console.log('Save response:', response); // Log the save response
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(data => {
-        alert(data.message || data.error);  // Display a message based on the response
+        alert(data.message || data.error);
     })
     .catch(error => {
-        // If there's an error with the fetch, log it to the console
-        console.error('Error:', error);
+        console.error('Error saving medication:', error); // Log the error
     });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const searchButtons = document.querySelectorAll('.search-button');
+    const illnessInput = document.getElementById('illness');
+
+    searchButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const searchText = this.getAttribute('data-search');
+            illnessInput.value = searchText;
+        });
+    });
+});
+
+// Hamburger menu
+const toggleButton = document.getElementsByClassName('toggle-button')[0]
+const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+
+toggleButton.addEventListener('click', () => {
+  navbarLinks.classList.toggle('active')
+});
