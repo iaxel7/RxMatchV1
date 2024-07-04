@@ -12,7 +12,7 @@ body {
 }
 
 main {
-    padding: 20px;
+    padding: 0%;
     background-color: #f8f9fa;
 }
 
@@ -200,4 +200,53 @@ main {
     .navbar-links.active {
         display: flex;
     }
+
+}
+/* footer styling */
+.footer {
+    background: linear-gradient(to right, #339FCD 70%, #3EA5CE 30%);
+    color: white;
+    height: 30rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.footer-content ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-content ul li {
+    margin: 5px 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.download .button{
+    height: 100px;
+}
+
+.icon{
+    height: 30px;
+}
+
+.scope{
+    display: grid;
+}
+
+.left{
+    margin-left: 20px;
+}
+
+.right{
+    float: right;
+    margin-right: 50px;
 }
