@@ -1,75 +1,41 @@
-const form = document.getElementById("form");
-const fullName = document.getElementById("Name");
-const email = document.getElementById("email");
-const message = document.getElementById("message");
+const toggleButton = document.getElementsByClassName('toggle-button')[0]
+const navbarLinks = document.getElementsByClassName('navbar-links')[0]
 
-form.addEventListener("submit", function (e) {
-    e.preventDefault();
+toggleButton.addEventListener('click', () => {
+  navbarLinks.classList.toggle('active')
+})
 
-    if (validateForm()) {
-        const formData = new FormData();
-        formData.append("name", Name.value);
-        formData.append("email", email.value);
-        formData.append("message", message.value);
+const contactForm = document.getElementById('contactForm');
 
-        fetch('/api/contact', {
+contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    
+    const formData = new FormData(contactForm);
+    
+    const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        message: formData.get('message')
+    };
+    
+    try {
+        const response = await fetch('/api/contact', {  // Changed from '/submit' to '/api/contact'
             method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            if (response.ok) {
-                console.log('Contact form submitted successfully!');
-                // You can add any additional logic or UI updates here
-            } else {
-                console.error('Failed to submit contact form');
-            }
-        })
-        .catch(error => console.error('Error:', error));
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        
+        if (response.ok) {
+            alert('Message sent successfully!');
+            contactForm.reset();
+        } else {
+            const errorData = await response.json();
+            alert(`An error occurred: ${errorData.error || 'Unknown error'}`);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again later.');
     }
 });
-
-function validateForm() {
-    let valid = true;
-
-    if (fullName.value.trim() === '') {
-        valid = false;
-        setErrorFor(fullName, 'Name cannot be empty');
-    } else {
-        setSuccessFor(fullName);
-    }
-
-    if (email.value.trim() === '') {
-        valid = false;
-        setErrorFor(email, 'Email cannot be empty');
-    } else if (!isValidEmail(email.value)) {
-        valid = false;
-        setErrorFor(email, 'Enter a valid email address');
-    } else {
-        setSuccessFor(email);
-    }
-
-    if (message.value.trim() === '') {
-        valid = false;
-        setErrorFor(message, 'Message cannot be empty');
-    } else {
-        setSuccessFor(message);
-    }
-
-    return valid;
-}
-
-function setErrorFor(input, message) {
-    const formControl = input.parentElement;
-    const small = formControl.querySelector('small');
-    small.innerText = message;
-    formControl.classList.add('error');
-}
-
-function setSuccessFor(input) {
-    const formControl = input.parentElement;
-    formControl.classList.remove('error');
-}
-
-function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
