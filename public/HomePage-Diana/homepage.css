@@ -355,13 +355,17 @@ body {
     display: grid;
 }
 
+.follow{
+    margin-bottom: 30px;
+}
+
 .left{
     margin-left: 20px;
 }
 
 .right{
     float: right;
-    margin-right: 50px;
+    margin-right: 60px;
 }
 
 /*NavBar Media Queries*/
@@ -511,9 +515,59 @@ body {
         border-radius: 200px;
     }
 
+    .left{
+        margin-left: 20px;
+    }
+    
+    .right{
+        float: right;
+    }
 }
 
 @media (max-width: 932px) {
+    .help-buttons h1{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .help-buttons{
+        height: 8rem;
+        background-color: white;
+        padding-top: 50px;
+        padding-bottom: 100px;
+        margin-bottom: 300px;
+    }
+    
+    .buttons{
+        height: 130px;
+        display: grid;
+        grid-template-columns: repeat(2, 230px);
+        grid-template-rows: repeat(3, 100px);
+        justify-content: space-around;
+    }
+    
+    .buttons button{
+        border: 1.5px solid #3EA5CE;
+        border-radius: 10px;
+        background-color: #f4f4f4;
+        margin: 10px;
+        width: 180px;
+        font-size: 15px;
+    }
+    
+    .buttons button:hover{
+        background-color: #3EA5CE;
+        color: white;
+        cursor: pointer;
+    }
+    
+    .buttons button:hover:active{
+        background-color: #339FCD;
+        color: white;
+        cursor: pointer;
+    }
+
+
     .footer{
         height: auto;
         width: auto;
@@ -540,5 +594,80 @@ body {
         text-align: center;
         float: none;
         margin: 10px 0;
+    }
+
+    .man{
+        height: 300px;
+        position: absolute;
+        margin-left: 10rem;
+        bottom: 90px;
+        display: none;
+    }
+    
+    .how-to{
+        height: 30rem;
+        width: 100%;
+        background-color: #f4f4f4;
+        margin-bottom: 100px;
+    }
+    
+    .how-to h1{
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
+    }
+    
+    .circles{
+        display: block;
+        text-align: center;
+        font-size: 18px;
+        margin: 60px;
+    }
+    
+    .circles a{
+        text-decoration: none;
+        color: white;
+    }
+    
+    .circles a:hover{
+        text-decoration: none;
+        color: black;
+    }
+    
+    .circles a:active{
+        text-decoration: none;
+        color: rgb(87, 87, 87);
+    }
+    
+    .circles .circle1{
+        border: none;
+        background-color: #339FCD;
+        color: white;
+        height: 58px;
+        width: 20rem;
+        padding: 11px;
+        border-radius: 200px;
+        margin-bottom: 30px;
+    }
+    
+    .circles .circle2{
+        border: none;
+        background-color: #339FCD;
+        color: white;
+        height: 58px;
+        width: 20rem;
+        padding: 11px;
+        border-radius: 200px;
+        margin-bottom: 30px;
+    }
+    
+    .circles .circle3{
+        border: none;
+        background-color: #339FCD;
+        color: white;
+        height: 58px;
+        width: 20rem;
+        padding: 11px;
+        border-radius: 200px;
     }
 }
