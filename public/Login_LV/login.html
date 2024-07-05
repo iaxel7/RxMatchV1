@@ -6,8 +6,27 @@
     <link rel="stylesheet" href="login.css">
     <title>RxMatch Log In</title>
 </head>
-<body>
-    <header>nav bar</header>
+<body>    
+    <header>
+        <nav class="navbar">
+          <div class="brand-title">RxMatch</div>
+          <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </a>
+          <div class="navbar-links">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Get Matched</a></li>
+              <li><a href="#">Saved Medication</a></li>
+              <li><a href="#">Log In</a></li>
+            </ul>
+          </div>
+        </nav>
+    </header>
+
     <main>
         <div class="rx-info">
             <h1>Welcome to RxMatch!</h1>
@@ -18,6 +37,7 @@
                 <br>
                 Sign up today to discover personalized recommendations and empower your health decisions.
             </p>
+            <img src="/public/images/login-img.webp" alt="rx-icon" id="login-icon">
         </div>
         <div id="member">
             <h2>Login</h2>
@@ -36,7 +56,57 @@
             </form>
         </div>
     </main>
-    <footer></footer>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="company">
+                <ul>
+                    <h4>Company</h4>
+                    <li>About</li>
+                    <li>Help</li>
+                    <li>Careers</li>
+                </ul>
+            </div>
+            <div class="legal">
+                <ul>
+                    <h4>Legal</h4>
+                    <li>Terms of use</li>
+                    <li>Privacy Policy</li>
+                    <li>Disclaimer</li>
+                    <li>Accessibility</li>
+                    <li>Cookie Preferences</li>
+                </ul>
+            </div>
+            <div class="contact">
+                <ul>
+                    <h4>Contact Us</h4>
+                    <li>(123) 456-7890</li>
+                    <li>rxmatch@gmail.com</li>
+                </ul>
+            </div>
+        <div class="scope">    
+            <div class="download">
+                <h3>Download our App</h3>
+                <img src="/public/images/app-store-badge.png" class="button">
+                <img src="/public/images/google-play-badge.png" class="button">
+            </div>
+            <div class="follow">
+                <h3>Follow us:</h3>
+                <img src="/public/images/instagram-icon.webp" class="icon">
+                <img src="/public/images/tiktok-icon.webp" class="icon">
+                <img src="/public/images/twitter-icon.webp" class="icon">
+            </div>
+            </div>
+        </div>    
+
+        <div class="left">
+            <h1>RxMatch</h1>
+        </div>
+
+        <div class="right">
+            <p>© RxMatch, LLC 2024</p>
+        </div>
+    </footer>
     <script src="login.js"></script>
 </body>
 </html>
