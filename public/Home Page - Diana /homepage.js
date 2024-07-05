@@ -6,6 +6,7 @@ toggleButton.addEventListener('click', () => {
   navbarLinks.classList.toggle('active')
 });
 
+
 //Slider Javacsript
 const wrapper = document.querySelector(".wrapper");
 const carousel = document.querySelector(".carousel");

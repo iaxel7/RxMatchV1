@@ -21,6 +21,14 @@ body {
     height: 5rem;
 }
 
+.navbar.active {
+    background-color: #3EA5CE; 
+}
+
+.navbar-links.active {
+    background-color: #3EA5CE; 
+}
+
 .brand-title {
     font-size: 2rem;
     font-weight: bolder;
@@ -51,6 +59,7 @@ body {
 .navbar-links li {
     list-style: none;
 }
+
 
 .navbar-links li a {
     display: block;
@@ -133,6 +142,11 @@ body {
     color: white;
     cursor: pointer;
 }
+
+
+
+    
+
 
 .man{
     height: 500px;
@@ -333,7 +347,7 @@ body {
     height: 100px;
 }
 
-.icon{
+.icons{
     height: 30px;
 }
 
@@ -399,28 +413,115 @@ body {
     }
   }
 
-/*Footer Media Queries*/
+/* Footer Media Queries*/ 
 
-/* @media (max-width: 768px) {
+ @media (max-width: 1366px) {
+    .footer{
+        height: auto;
+    }
+
     .footer-content {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         align-items: center;
     }
 
     .footer-content > div {
-        margin-bottom: 20px;
         text-align: center;
     }
 
-    .download .button,
-    .icon {
-        height: 80px;
+    .download .button {
+        height: 60px;
     }
+
+    .icons{
+        height: 30px;
+    }
+
+    .man{
+        height: 400px;
+        position: absolute;
+        margin-left: 40rem;
+        bottom: 450px;
+    }
+    
+    .how-to{
+        height: 30rem;
+        background-color: #f4f4f4;
+        margin-bottom: 100px;
+    }
+    
+    .how-to h1{
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
+    }
+    
+    .circles{
+        display: block;
+        text-align: center;
+        font-size: 30px;
+        margin: 60px;
+    }
+    
+    .circles a{
+        text-decoration: none;
+        color: white;
+    }
+    
+    .circles a:hover{
+        text-decoration: none;
+        color: black;
+    }
+    
+    .circles a:active{
+        text-decoration: none;
+        color: rgb(87, 87, 87);
+    }
+    
+    .circles .circle1{
+        border: none;
+        background-color: #339FCD;
+        color: white;
+        height: 58px;
+        width: 30rem;
+        padding: 11px;
+        border-radius: 200px;
+        margin-bottom: 30px;
+    }
+    
+    .circles .circle2{
+        border: none;
+        background-color: #339FCD;
+        color: white;
+        height: 58px;
+        width: 30rem;
+        padding: 11px;
+        border-radius: 200px;
+        margin-bottom: 30px;
+    }
+    
+    .circles .circle3{
+        border: none;
+        background-color: #339FCD;
+        color: white;
+        height: 58px;
+        width: 30rem;
+        padding: 11px;
+        border-radius: 200px;
+    }
+
 }
 
-@media (max-width: 480px) {
+@media (max-width: 932px) {
+    .footer{
+        height: auto;
+        width: auto;
+    }
+
     .footer-content {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         align-items: center;
     }
 
@@ -440,4 +541,4 @@ body {
         float: none;
         margin: 10px 0;
     }
-} */
+}
