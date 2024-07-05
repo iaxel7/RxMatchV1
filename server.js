@@ -5,6 +5,7 @@ const mysql = require('mysql2');
 const axios = require('axios');
 require('dotenv').config();
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,6 +13,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(cookieParser());
+// app.use(express.static(path.join(__dirname, "public")));
 
 const pool = mysql.createPool({
     host: process.env.DB_HOST,
@@ -27,6 +29,11 @@ function ensureLoggedIn (req, res, next){
     }
     next ();
 };
+
+//route to serve index.html
+app.get("/",(req,res) => {
+    res.sendFile(path.join(__dirname, 'public/HomePage-Diana', 'index.html'))
+});
 
 
 //route to register new user ---- 
@@ -64,6 +71,7 @@ app.post('/api/users/login', (req,res) => {
         res.json({ message: "Logged in successfully" });
     });
 });
+
 //connecting to database
 pool.getConnection((err, connection) => {
     if (err) {
