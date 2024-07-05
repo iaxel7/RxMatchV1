@@ -1,9 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetchLikedMedications();
   });
+
+const toggleButton = document.getElementsByClassName('toggle-button')[0]
+const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+
+toggleButton.addEventListener('click', () => {
+navbarLinks.classList.toggle('active')
+});
   
   function fetchLikedMedications() {
-    // This function should fetch liked medications from your backend.
+    // This function should fetch liked medications from your backend.git
     // For demonstration, we'll use dummy data.
     const likedMedications = [
       { name: "Medication 1", price: "$20.00", image: "img1.jpg" },
