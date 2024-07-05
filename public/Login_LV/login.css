@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 * {
+    font-family: Raleway;
     box-sizing: border-box;
-    font-family: 'Times New Roman', Times, serif;
 }
 
 body {
@@ -17,6 +18,7 @@ main {
     min-height: 100vh;
     padding: 20px;
 }
+
 
 .rx-info {
     flex: 1;
@@ -43,6 +45,7 @@ main {
     border-radius: 8px;
     max-width: 400px;
     margin: 0 auto;
+    color: white;
 }
 
 #log-in {
@@ -76,18 +79,6 @@ main {
 }
 
 /* ---------------------NAVIGATION BAR-----------------------------*/
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-
-* {
-    font-family: Raleway;
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-}
-
 .navbar {
     display: flex;
     position: relative;
@@ -208,13 +199,12 @@ body {
 /* ---------------------MEDIA QUERIES----------------------------*/
 
 /* phone screen  */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 932px) {
     .rx-info {
         display: none;
     }
 
-    /*NavBar Media Queries*/
-@media (max-width: 800px) {
+/*NavBar Media Queries*/
     .navbar {
         flex-direction: column;
         align-items: flex-start;
@@ -246,10 +236,31 @@ body {
         display: flex;
     }
 }
-}
 
 /* tablet screens  */
-@media screen and (min-width: 801px) and (max-width: 1023px) {
+@media screen and (min-width: 933px) and (max-width: 1366px) {
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #login-icon {
+        display: none;
+    }
 
+    #member {
+        flex: 1;
+        padding: 20px;
+        background-color: #3EA5CE;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        max-width: 100%;
+        margin: 0 auto;
+        color: white;
+    }
+    
+    #log-in {
+        display: flex;
+        flex-direction: column;
+    }
 }
-
