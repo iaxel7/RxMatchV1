@@ -1,20 +1,293 @@
-*{
-    font-family: 'Courier New', Courier, monospace;
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+* {
+    font-family: Raleway;
+    box-sizing: border-box;
 }
 
-nav{
-    background-color: #F6F6F6;
-    height: 5rem;
+body {
     margin: 0;
+    padding: 0;
 }
 
-.logo{
-    font-size: 2rem;
-}
-
-ul{
+.navbar {
     display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4f4f4;
+    color: black;
+    height: 5rem;
+}
+
+.brand-title {
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-left: 50px;
+    color: #3EA5CE;
+}
+
+.brand-title:hover{
+    color: black;
+    cursor: pointer;
+}
+
+.navbar-links {
+    padding: 0;
+}
+
+.navbar-links ul {
+    display: flex;
+    margin-right: 50px;
+    padding: 0;
+}
+
+.navbar-links li {
     list-style: none;
-    float: right;
+}
+
+.navbar-links li a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 1rem;
+}
+
+.navbar-links li a:hover {
+    background-color: #3EA5CE;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.toggle-button {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.help-buttons h1{
+    display: flex;
+    justify-content: center;
+}
+
+.help-buttons{
+    height: 10rem;
+    background-color: white;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    margin-bottom: 270px;
+}
+
+.buttons{
+    height: 130px;
+    display: grid;
+    grid-template-columns: repeat(3, 270px);
+    grid-template-rows: repeat(2, 100px);
     justify-content: space-around;
 }
+
+.buttons button{
+    border: 1.5px solid #3EA5CE;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.buttons button:hover{
+    background-color: #3EA5CE;
+    color: white;
+    cursor: pointer;
+}
+
+.how-to{
+    height: 30rem;
+    background-color: #f4f4f4;
+    margin-bottom: 100px;
+}
+
+.how-to h1{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.circles{
+    display: block;
+    text-align: center;
+    font-size: 40px;
+    margin: 60px;
+}
+
+.circles .circle1{
+    border: none;
+    background-color: #339FCD;
+    color: white;
+    height: 78px;
+    width: 60rem;
+    padding: 11px;
+    border-radius: 200px;
+    margin-bottom: 30px;
+}
+
+.circles .circle2{
+    border: none;
+    background-color: #339FCD;
+    color: white;
+    height: 78px;
+    width: 60rem;
+    padding: 11px;
+    border-radius: 200px;
+    margin-bottom: 30px;
+}
+
+.circles .circle3{
+    border: none;
+    background-color: #339FCD;
+    color: white;
+    height: 78px;
+    width: 60rem;
+    padding: 11px;
+    border-radius: 200px;
+}
+
+
+
+
+
+.footer {
+    background: linear-gradient(to right, #339FCD 70%, #3EA5CE 30%);
+    color: white;
+    height: 25rem;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.footer-content ul {
+    list-style: none;
+    padding: 0;
+}
+.footer-content ul li {
+    margin: 5px 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.download .button{
+    height: 100px;
+}
+
+.icon{
+    height: 30px;
+}
+
+.scope{
+    display: grid;
+}
+
+.left{
+    margin-left: 20px;
+}
+
+.right{
+    float: right;
+    margin-right: 50px;
+}
+
+/*NavBar Media Queries*/
+@media (max-width: 800px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .toggle-button {
+        display: flex;
+    }
+
+    .navbar-links {
+        display: none;
+        width: 100%;
+    }
+
+    .navbar-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navbar-links ul li {
+        text-align: center;
+    }
+
+    .navbar-links ul li a {
+        padding: .5rem 1rem;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+}
+/*Footer Media Queries*/
+
+/* @media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-content > div {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .download .button,
+    .icon {
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-content > div {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .download .button,
+    .icon {
+        height: 60px;
+    }
+
+    .left,
+    .right {
+        text-align: center;
+        float: none;
+        margin: 10px 0;
+    }
+} */
