@@ -19,7 +19,7 @@ contactForm.addEventListener('submit', async (event) => {
     };
     
     try {
-        const response = await fetch('/submit', {
+        const response = await fetch('/api/contact', {  // Changed from '/submit' to '/api/contact'
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,10 +31,12 @@ contactForm.addEventListener('submit', async (event) => {
             alert('Message sent successfully!');
             contactForm.reset();
         } else {
-            alert('An error occurred. Please try again later.');
+            const errorData = await response.json();
+            alert(`An error occurred: ${errorData.error || 'Unknown error'}`);
         }
     } catch (error) {
         console.error('Error:', error);
         alert('An error occurred. Please try again later.');
     }
 });
+

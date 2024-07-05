@@ -64,9 +64,7 @@ app.post('/api/users/login', (req,res) => {
         res.json({ message: "Logged in successfully" });
     });
 });
-
-
-
+//connecting to database
 pool.getConnection((err, connection) => {
     if (err) {
         console.error('Database connection failed:', err);
@@ -104,6 +102,28 @@ app.get('/api/medication/search', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
+// Route to handle contact form submission
+app.post('/api/contact', (req, res) => {
+    console.log('Received contact form submission:', req.body);
+    const { name, email, message } = req.body;
+  
+    if (!name || !email || !message) {
+        console.log('Missing required fields');
+        return res.status(400).json({ error: 'All fields are required' });
+    }
+     
+    pool.query('INSERT INTO Contact_Form (name, email, message) VALUES (?, ?, ?)', [name, email, message], (err) => {
+        if (err) {
+            console.error('Database error:', err);
+            return res.status(500).json({ error: err.message });
+        }
+      
+        console.log('Contact form submitted successfully');
+        res.status(201).json({ message: 'Contact form submitted successfully!' });
+    });
+});
+
 
 // Route to save medication information for a user
 app.post('/api/medication/save', (req, res) => {
