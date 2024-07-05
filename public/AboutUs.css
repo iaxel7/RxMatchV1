@@ -194,6 +194,29 @@ button:active{
   color: black;
 }
 
+@media (max-width: 800px) {
+  .container {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .form {
+    padding: 15px;
+  }
+
+  .formc input,
+  .formc select {
+    height: 30px;
+    font-size: 14px;
+  }
+
+  button {
+    height: 35px;
+    font-size: 14px;
+  }
+}
+
+
 .footer {
   background: linear-gradient(to right, #339FCD 70%, #3EA5CE 30%);
   color: white;
