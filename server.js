@@ -4,12 +4,14 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const axios = require('axios');
 require('dotenv').config();
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
+app.use(cookieParser());
 
 const pool = mysql.createPool({
     host: process.env.DB_HOST,
@@ -17,6 +19,53 @@ const pool = mysql.createPool({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME
 });
+
+//middleware to check if user logged in ------ 
+function ensureLoggedIn (req, res, next){
+    if(!req.cookie.userID){
+        return res.status(401).send('Not Logged In');
+    }
+    next ();
+};
+
+
+//route to register new user ---- 
+app.post('/api/users/register', (req,res) => {
+    const { username, password } = req.body;
+    console.log('Register new user:', {username, password });
+
+    pool.query('INSERT INTO Users (name, password) VALUES (?,?)', [username, password], (err,results)  => {
+        if (err) {
+            console.error("database insert failed", err );
+            return res.status(500).json({ error:err.message });
+        } 
+        res.json({ message: 'User registered succesfully'});
+    
+    });
+});
+
+// route to login a existing user --------
+app.post('/api/users/login', (req,res) => {
+    const { username, password } = req.body;
+    console.log("Logging in user:", { username, password });
+
+    pool.query('SELECT * FROM Users WHERE name = ? AND password = ?', [username,password], (err, results) => {
+        if (err) {
+            console.error('Database query failed:', err);
+            return res.status(500).json({ error: 'Internal server error', details: err.message });
+        }
+        if(results.length === 0){
+            return res.status(401).json({ error: "Invalid username or password" });
+        }
+        
+        // If we get here, the user was found
+        // Set a cookie to indicate successful login 
+        res.cookie("userId", results[0].id, { maxAge: 1000 * 60 * 60 * 24 }); // expires after 24 hours 
+        res.json({ message: "Logged in successfully" });
+    });
+});
+
+
 
 pool.getConnection((err, connection) => {
     if (err) {
