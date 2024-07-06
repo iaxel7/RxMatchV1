@@ -34,6 +34,7 @@ body {
     font-weight: bolder;
     margin-left: 50px;
     color: #3EA5CE;
+    cursor: pointer;
 }
 
 .brand-title:hover{
