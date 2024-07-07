@@ -39,4 +39,3 @@ contactForm.addEventListener('submit', async (event) => {
         alert('An error occurred. Please try again later.');
     }
 });
-

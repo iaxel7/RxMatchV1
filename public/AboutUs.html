@@ -29,31 +29,96 @@
         <h1>About Our App</h1>
     </header>
     <main>
-        <section>
+        <div class="mission">
             <h2>Our Mission</h2>
             <p>Welcome to our app dedicated to helping users find information about their current medication and similar ones. Our mission is to provide a reliable platform where users can access valuable information about drugs to make informed decisions about their health.</p>
-        </section>
-        <section>
+        </div>
+        <div class="about">
             <h2>Who We Are</h2>
             <p>We are a team of dedicated individuals passionate about empowering users with accurate and up-to-date information about medications. Our team consists of healthcare professionals, technologists, and designers working together to create a user-friendly experience.</p>
-        </section>
+        </div>
         <section>
             <h2>Contact Us</h2>
             <p>If you have any questions, feedback, or suggestions, please feel free to contact us.</p>
-            <form id="contactForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-                <button type="submit">Submit</button>
-            </form>
-        </section>
+             
+              <div class="box">
+                  <div class="container">
+                      <form id="form" class="form">
+                        <h2>Get in touch!</h2>
+                        <p>If you have any questions, feedback, or suggestions, please feel free to contact us.</p>
+                          <div class="error">
+                          <div class="formc">
+                              <label for="Name">Name</label>
+                              <input type="text" id="Name" placeholder="Enter your name" autocomplete="off">
+                              <small>Name is required</small>
+                          </div>
+                          <div class="formc">
+                              <label for="email">Email</label>
+                              <input type="text" id="email" placeholder="Enter your email" autocomplete="off">
+                              <small>Email is required</small>
+                          </div>
+                        
+                          <div class="formc">
+                              <label for="message">Message</label>
+                              <input type="text" id="message" placeholder="Message" autocomplete="off">
+                          </div>  
+                          <button type="submit">Submit</button>
+                          </div>
+                      </form>
+                  </div>
+                  </div>
+              
     </main>
-    <footer>
-        <p>&copy; 2024 App Drug Info. All rights reserved.</p>
-    </footer>
+    <footer class="footer">
+      <div class="footer-content">
+          <div class="company">
+              <ul>
+                  <h4>Company</h4>
+                  <li>About</li>
+                  <li>Help</li>
+                  <li>Careers</li>
+              </ul>
+          </div>
+          <div class="legal">
+              <ul>
+                  <h4>Legal</h4>
+                  <li>Terms of use</li>
+                  <li>Privacy Policy</li>
+                  <li>Disclaimer</li>
+                  <li>Accessibility</li>
+                  <li>Cookie Preferences</li>
+              </ul>
+          </div>
+          <div class="contact">
+              <ul>
+                  <h4>Contact Us</h4>
+                  <li>(123) 456-7890</li>
+                  <li>rxmatch@gmail.com</li>
+              </ul>
+          </div>
+      <div class="scope">    
+          <div class="download">
+              <h3>Download our App</h3>
+              <img src="/public/images/app-store-badge.png" class="button">
+              <img src="/public/images/google-play-badge.png" class="button">
+          </div>
+          <div class="follow">
+              <h3>Follow us:</h3>
+              <img src="/public/images/instagram-icon.webp" class="icon">
+              <img src="/public/images/tiktok-icon.webp" class="icon">
+              <img src="/public/images/twitter-icon.webp" class="icon">
+          </div>
+          </div>
+      </div>    
+
+      <div class="left">
+          <h1>RxMatch</h1>
+      </div>
+
+      <div class="right">
+          <p>© RxMatch, LLC 2024</p>
+      </div>
+  </footer>
     <script src="About.js"></script>
     <script src="server.js"></script>
 </body>
