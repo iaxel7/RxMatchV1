@@ -32,7 +32,7 @@ function ensureLoggedIn (req, res, next){
 
 //route to serve index.html
 app.get("/",(req,res) => {
-    res.sendFile(path.join(__dirname, 'public/Home Page - Diana ', 'index.html'))
+    res.sendFile(path.join(__dirname, 'public/HomePage-Diana', 'index.html'))
 });
 
 
