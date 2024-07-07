@@ -319,6 +319,17 @@ body {
   font-size: 1.31rem;
 }
 
+.disclaimer{
+    background-color: #f4f4f4;
+    height: 3rem;
+}
+
+.disclaimer p{
+    font-size: 15px;
+    text-align: center;
+    padding-top: 10px;
+}
+
 
 
 .footer {
@@ -512,13 +523,10 @@ body {
         border-radius: 200px;
     }
 
-    .left{
-        margin-left: 20px;
+    .disclaimer p{
+        font-size: 13px;
     }
-    
-    .right{
-        float: right;
-    }
+
 }
 
 @media (max-width: 932px) {
@@ -671,5 +679,12 @@ body {
         width: 20rem;
         padding: 11px;
         border-radius: 200px;
+    }
+
+    .disclaimer{
+        height: 4rem;
+        padding-right: 10px;
+        padding-left: 10px;
+
     }
 }
