@@ -229,6 +229,7 @@ body {
   position: relative;
   
 }
+
 .wrapper i {
   top: 50%;
   height: 50px;
@@ -246,9 +247,11 @@ body {
   transform: translateY(-50%);
   transition: transform 0.1s linear;
 }
+
 .wrapper i:active{
   transform: translateY(-50%) scale(0.85);
 }
+
 .wrapper i:first-child{
   left: 0px;
 }
