@@ -78,6 +78,10 @@ main {
     background-color: #77c0dc;
 }
 
+.mobile-welcome {
+    display: none;
+}
+
 /* ---------------------NAVIGATION BAR-----------------------------*/
 .navbar {
     display: flex;
@@ -219,9 +223,53 @@ main {
 /* ---------------------MEDIA QUERIES----------------------------*/
 
 /* phone screen  */
-@media screen and (max-width: 932px) {
+@media screen and (max-width: 800px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+        padding: 20px 10px; 
+        font-size: larger;
+    }
+
+    .mobile-welcome {
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+        color: black;
+    }
+
     .rx-info {
         display: none;
+    }
+
+    #member {
+        width: 100%;
+        max-width: 600px;
+        margin: 0;
+        padding: 20px; 
+        min-height: auto; 
+        /* max-height: 50vh; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+    }
+
+    #log-in input, #log-in button {
+        width: 100%;
+        box-sizing: border-box; 
+    }
+
+    #log-in input {
+        padding: 12px; 
+        font-size: 16px; 
+    }
+
+    #log-in button {
+        padding: 12px;
+        font-size: 16px;
     }
 
 /*NavBar Media Queries*/
@@ -258,30 +306,35 @@ main {
 }
 
 /* tablet screens  */
-@media screen and (min-width: 933px) and (max-width: 1025px) {
+@media screen and (min-width: 801px) and (max-width: 1025px) {
     main {
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
-    
+
     #login-icon {
         display: none;
     }
 
+    .rx-info {
+        font-size: larger;
+        max-width: 80%;
+    }
+
     #member {
-        flex: 1;
         padding: 20px;
         background-color: #3EA5CE;
         border: 1px solid #ddd;
         border-radius: 8px;
-        max-width: 100%;
-        margin: 0 auto;
         color: white;
+        width: 100%; 
+        max-width: 600px; 
+
     }
-    
+
     #log-in {
-        display: flex;
-        flex-direction: column;
+        width: 95%; 
     }
 }
 
