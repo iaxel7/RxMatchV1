@@ -9,6 +9,7 @@ const path = require('path');
 const { Translate } = require('@google-cloud/translate').v2;
 const app = express();
 const PORT = process.env.PORT || 3000;
+const fs = require('fs');
 // Middleware setup
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -35,11 +36,13 @@ function ensureLoggedIn(req, res, next) {
 }
 
 // Google Translate setup
-if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
-    console.error('GOOGLE_APPLICATION_CREDENTIALS environment variable is not set.');
+const credentialsPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+if(!credentialsPath || ! fs.existsSync(credentialsPath)){
+    console.error ('GOOGLE_APPLICATION_CREDENTIALS enviroment variable is not set or fle name does not exist');
     process.exit(1);
-  }
-  const translate = new Translate();
+}
+  
+  const translate = new Translate({keyFilename: credentialsPath});
   // Route to handle translation request
   app.post('/translate', async (req, res) => {
     const { text, target } = req.body;
