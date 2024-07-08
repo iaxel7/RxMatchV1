@@ -367,65 +367,25 @@ main {
        padding: 12px;
        font-size: 16px;
    }
-
-
-/*NavBar Media Queries*/
-@media (max-width: 800px) {
-   .navbar {
-       flex-direction: column;
-       align-items: flex-start;
-   }
-
-
-   .toggle-button {
-       display: flex;
-   }
-
-
-   .navbar-links {
-       display: none;
-       width: 100%;
-   }
-
-
-   .navbar-links ul {
-       width: 100%;
-       flex-direction: column;
-   }
-
-
-   .navbar-links ul li {
-       text-align: center;
-   }
-
-
-   .navbar-links ul li a {
-       padding: .5rem 1rem;
-   }
-
-
-   .navbar-links.active {
-       display: flex;
-   }
 }
-
 /* tablet screens  */
-@media screen and (min-width: 801px) and (max-width: 1025px) {
+@media screen and (min-width: 801px) and (max-width: 1030px) {
    main {
-       display: flex;
-       flex-direction: column;
+       display: block;
        align-items: center;
    }
 
 
    #login-icon {
-       display: none;
+      display: none;
    }
 
 
    .rx-info {
        font-size: larger;
        max-width: 80%;
+       margin-top: 120px;
+       margin-bottom: 80px;
    }
 
 
@@ -437,16 +397,40 @@ main {
        color: white;
        width: 100%;
        max-width: 600px;
-
-
+        min-height: 45vh;
    }
 
 
    #log-in {
        width: 95%;
    }
+
+.footer{
+    height: auto;
 }
 
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+
+.footer-content > div {
+    text-align: center;
+}
+
+
+.download .button {
+    height: 60px;
+}
+
+
+.icons{
+    height: 30px;
+}
+}
 
 @media (max-width: 1366px) {
    .footer{
@@ -473,86 +457,8 @@ main {
 
   .icons{
       height: 30px;
-  }
-
-
-
-   .man{
-       height: 400px;
-       position: absolute;
-       margin-left: 40rem;
-       bottom: 450px;
-   }
-  
-   .how-to{
-       height: 30rem;
-       background-color: #f4f4f4;
-       margin-bottom: 100px;
-   }
-  
-   .how-to h1{
-       display: flex;
-       justify-content: center;
-       padding-top: 30px;
-   }
-  
-   .circles{
-       display: block;
-       text-align: center;
-       font-size: 30px;
-       margin: 60px;
-   }
-  
-   .circles a{
-       text-decoration: none;
-       color: white;
-   }
-  
-   .circles a:hover{
-       text-decoration: none;
-       color: black;
-   }
-  
-   .circles a:active{
-       text-decoration: none;
-       color: rgb(87, 87, 87);
-   }
-  
-   .circles .circle1{
-       border: none;
-       background-color: #339FCD;
-       color: white;
-       height: 58px;
-       width: 30rem;
-       padding: 11px;
-       border-radius: 200px;
-       margin-bottom: 30px;
-   }
-  
-   .circles .circle2{
-       border: none;
-       background-color: #339FCD;
-       color: white;
-       height: 58px;
-       width: 30rem;
-       padding: 11px;
-       border-radius: 200px;
-       margin-bottom: 30px;
-   }
-  
-   .circles .circle3{
-       border: none;
-       background-color: #339FCD;
-       color: white;
-       height: 58px;
-       width: 30rem;
-       padding: 11px;
-       border-radius: 200px;
-   }
-
-
+  } 
 }
-
 
 @media (max-width: 932px) {
    .footer{
@@ -586,5 +492,5 @@ main {
 
 }
 
-}
+
 
