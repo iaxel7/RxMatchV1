@@ -56,25 +56,25 @@ main {
 }
 
 
-#log-in {
+#subscription {
    display: flex;
    flex-direction: column;
 }
 
 
-#log-in label {
+#subscription label {
    margin-bottom: 3px;
 }
 
 
-#log-in input {
+#subscription input {
    padding: 10px;
    margin-bottom: 16px;
    font-size: 16px;
 }
 
 
-#log-in button {
+#subscription button {
    padding: 12px 24px;
    font-size: 16px;
    cursor: pointer;
@@ -86,7 +86,7 @@ main {
 }
 
 
-#log-in button:hover {
+#subscription button:hover {
    background-color: #77c0dc;
 }
 
@@ -340,7 +340,7 @@ main {
 
    #member {
        width: 100%;
-       max-width: 400px;
+       max-width: 600px;
        margin: 0;
        padding: 20px;
        min-height: auto;
@@ -351,19 +351,19 @@ main {
    }
 
 
-   #log-in input, #log-in button {
+   #subscription input, #subscription button {
        width: 100%;
        box-sizing: border-box;
    }
 
 
-   #log-in input {
+   #subscription input {
        padding: 12px;
        font-size: 16px;
    }
 
 
-   #log-in button {
+   #subscription button {
        padding: 12px;
        font-size: 16px;
    }
@@ -401,7 +401,7 @@ main {
    }
 
 
-   #log-in {
+   #subscription {
        width: 95%;
    }
 

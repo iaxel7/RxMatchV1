@@ -22,7 +22,7 @@
                 <li><a href="/AboutRx/aboutrx.html">About Us</a></li>
                 <li><a href="/match/match.html">Get Matched</a></li>
                 <li><a href="/contact/contact.html">Contact Us</a></li>
-                <li><a href="/Login_LV/login.html">Log In</a></li>
+                <li><a href="/Login_LV/login.html">Subscribe</a></li>
                </ul>
            </ul>
          </div>
@@ -31,43 +31,40 @@
 
 
    <main>
-       <div class="mobile-welcome">
-           <h1>Welcome to RxMatch</h1>
-       </div>
-      
-       <div class="rx-info">
-           <h1>Welcome to RxMatch!</h1>
-           <p>
-               At RxMatch, we make understanding your medications simple.
-               <br>
-               Whether you're looking for information on your current prescriptions or exploring alternatives, RxMatch provides detailed insights tailored to your needs.
-               <br>
-               Sign up today to discover personalized recommendations and empower your health decisions.
-           </p>
-           <img src="/images/login-img.webp" alt="rx-icon" id="login-icon">
-       </div>
+    <div class="mobile-welcome">
+        <h1 data-translate>Subscribe to RxMatch</h1>
+    </div>
+   
+    <div class="rx-info">
+        <h1 data-translate>Subscribe to RxMatch!</h1>
+        <p data-translate>
+            Join our mailing list at RxMatch to simplify understanding your medications. Stay informed with the latest insights on your current prescriptions and explore alternative treatments. Our newsletter is designed to provide you with detailed information tailored to your healthcare needs. Subscribe now to receive regular updates and empower your health decisions.
+        </p>
+        <img src="/images/login-img.webp" alt="rx-icon" id="login-icon">
+    </div>
 
 
-       <div id="member">
-           <h2>Login</h2>
-           <h4>Or Sign Up Today</h4>
-           <form id="log-in">
-               <label for="username">Username:</label>
-               <br>
-               <input type="text" id="username" name="username">
-               <br>
-               <label for="password">Password:</label>
-               <br>
-               <input type="password" id="password" name="password">
-               <br>
-               <button type="submit">Login</button>
-               <button id = "signup" type="submit">Sign Up</button>
-           </form>
-       </div>
-   </main>
+    <div id="member">
+        <h2 data-translate>Subscribe Here!</h2>
+        <form id="subscription">
+            <label data-translate for="username">Name:</label>
+            <br>
+            <input type="text" id="username" name="username">
+            <span id="usernameError" style="color:red;"></span>
+            <br>
+            <label data-translate for="password">Email:</label>
+            <br>
+            <input type="text" id="password" name="password">
+            <span id="passwordError" style="color:red;"></span>
+            <br>
+            <button data-translate id="signup" type="submit">Subscribe</button>
+        </form>
+    </div>
+</main>
+
 
    <div class="disclaimer">
-    <p> ⚠️ Disclaimer! Do not rely on RxMatch to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-Regulated products. ⚠️</p>
+    <p data-translate> ⚠️ Disclaimer! Do not rely on RxMatch to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-Regulated products. ⚠️</p>
   </div>
   
    <footer class="footer">
@@ -78,6 +75,7 @@
                 <li>About</li>
                 <li>Help</li>
                 <li>Careers</li>
+                <button id="translate-button">Translate</button>
             </ul>
         </div>
         <div class="legal">
@@ -92,19 +90,19 @@
         </div>
         <div class="contact">
             <ul>
-                <h4>Contact Us</h4>
+                <h4 data-translate>Contact Us</h4>
                 <li>(123) 456-7890</li>
                 <li>rxmatch@gmail.com</li>
             </ul>
         </div>
     <div class="scope">   
         <div class="download">
-            <h3>Download our App</h3>
+            <h3 data-translate>Download our App</h3>
             <a href="https://www.apple.com/app-store/"><img src="/images/app-store-badge.png" class="button"></a>
             <a href="https://play.google.com/store/apps?utm_source=na_Med&utm_medium=hasem&utm_content=Nov0520&utm_campaign=Evergreen&pcampaignid=MKT-EDR-na-us-1707532-Med-hasem-ap-Evergreen-Nov0520-Text_Search_BKWS-id_100470_%7CEXA%7CONSEM_kwid_43700023142507910_adgroupid_44836429436_keywordid_kwd-298662319347&gad_source=1&gclid=Cj0KCQjws560BhCuARIsAHMqE0HiNdtk-ORTelwuCtu1yy9k8I_5WZWh6kZffZneiI3gXpV9HGpV7qgaAvySEALw_wcB&gclsrc=aw.ds&pli=1"><img src="/images/google-play-badge.png" class="button"></a>
         </div>
         <div class="follow">
-            <h3>Follow us:</h3>
+            <h3 data-translate>Follow us:</h3>
             <a href="https://www.instagram.com/"><img src="/images/instagram-icon.webp" class="icons"></a>
             <a href="https://www.tiktok.com/?utm_medium=msn"><img src="/images/tiktok-icon.webp" class="icons"></a>
             <a href="https://x.com/?lang=en"><img src="/images/twitter-icon.webp" class="icons"></a>
@@ -112,7 +110,7 @@
       </div>
     </div>   
 </footer>
-
+<script src="/translation.js"></script>
    <script src="/Login_LV/login.js"></script>
 </body>
 </html>
