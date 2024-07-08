@@ -30,17 +30,17 @@ main {
 }
 
 .disclaimer{
-   background-color: #f4f4f4;
+   background-color: #f8f9fa;
    height: 3rem;
 }
 
 
 .disclaimer p{
-   font-size: 15px;
+   font-size: 16px;
    text-align: center;
    padding-top: 10px;
+   text-decoration: underline;
 }
-
 
 
 /* Search Section */

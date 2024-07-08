@@ -20,23 +20,23 @@
                 <li><a href="/HomePage-Diana/index.html">Home</a></li>
                 <li><a href="/AboutRx/aboutrx.html">About Us</a></li>
                 <li><a href="/match/match.html">Get Matched</a></li>
-                <li><a href="/contact/contact.html">Contact Us</a></li>
-                <li><a href="/Login_LV/login.html">Log In</a></li>
+                <li><a data-translate href="/contact/contact.html">Contact Us</a></li>
+                <li><a data-translate href="/Login_LV/login.html">Subscribe</a></li>
                </ul>
            </div>
        </nav>
    </header>
    <main>
        <section class="search-section">
-           <h2>Find the right prescription for you...</h2>
+           <h2 data-translate>Find the right prescription for you...</h2>
            <form id="illnessForm">
                <input type="text" id="illness" name="illness" placeholder="Enter text" required>
-               <button type="submit">Get Matched</button>
+               <button data-translate type="submit">Search</button>
            </form>
-           <div id="results"></div>
+           <div data-translate id="results"></div>
        </section>
        <section class="common-searches">
-           <h3>Common searches</h3>
+           <h3 data-translate>Common searches</h3>
            <div class="search-buttons">
                <button class="search-button" data-search="Diabetes">Diabetes</button>
                <button class="search-button" data-search="HyperTension">HyperTension</button>
@@ -44,7 +44,7 @@
            </div>
        </section>
        <div class="disclaimer">
-        <p> ⚠️ Disclaimer! Do not rely on RxMatch to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-Regulated products. ⚠️</p>
+        <p data-translate> ⚠️ Disclaimer! Do not rely on RxMatch to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-Regulated products. ⚠️</p>
       </div>
    </main>
    <footer class="footer">
@@ -55,6 +55,7 @@
                 <li>About</li>
                 <li>Help</li>
                 <li>Careers</li>
+                <button id="translate-button">Translate</button>
             </ul>
         </div>
         <div class="legal">
@@ -69,19 +70,19 @@
         </div>
         <div class="contact">
             <ul>
-                <h4>Contact Us</h4>
+                <h4 data-translate>Contact Us</h4>
                 <li>(123) 456-7890</li>
                 <li>rxmatch@gmail.com</li>
             </ul>
         </div>
     <div class="scope">   
         <div class="download">
-            <h3>Download our App</h3>
+            <h3 data-translate>Download our App</h3>
             <a href="https://www.apple.com/app-store/"><img src="/images/app-store-badge.png" class="button"></a>
             <a href="https://play.google.com/store/apps?utm_source=na_Med&utm_medium=hasem&utm_content=Nov0520&utm_campaign=Evergreen&pcampaignid=MKT-EDR-na-us-1707532-Med-hasem-ap-Evergreen-Nov0520-Text_Search_BKWS-id_100470_%7CEXA%7CONSEM_kwid_43700023142507910_adgroupid_44836429436_keywordid_kwd-298662319347&gad_source=1&gclid=Cj0KCQjws560BhCuARIsAHMqE0HiNdtk-ORTelwuCtu1yy9k8I_5WZWh6kZffZneiI3gXpV9HGpV7qgaAvySEALw_wcB&gclsrc=aw.ds&pli=1"><img src="/images/google-play-badge.png" class="button"></a>
         </div>
         <div class="follow">
-            <h3>Follow us:</h3>
+            <h3 data-translate>Follow us:</h3>
             <a href="https://www.instagram.com/"><img src="/images/instagram-icon.webp" class="icons"></a>
             <a href="https://www.tiktok.com/?utm_medium=msn"><img src="/images/tiktok-icon.webp" class="icons"></a>
             <a href="https://x.com/?lang=en"><img src="/images/twitter-icon.webp" class="icons"></a>
@@ -89,7 +90,7 @@
       </div>
     </div>   
 </footer>
-
+ <script src="/translation.js"></script>
    <script src="match.js"></script>
 </body>
 </html>
